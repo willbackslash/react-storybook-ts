@@ -1,14 +1,16 @@
 {
-  "name": "react-storybook-ts",
+  "name": "@willbackslash/react-storybook-ts",
   "version": "0.1.0",
-  "files": ["./dist"],
+  "files": [
+    "./dist"
+  ],
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/"
   },
   "repository": "git://github.com/willbackslash/react-storybook-ts",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
-  "source": "src/index.js",
+  "source": "src/components/index.tsx",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
@@ -31,10 +33,11 @@
     "start-react-app": "react-scripts start",
     "build": "rollup -c",
     "build-watch": "rollup -c -w",
-    "test": "react-scripts test",
+    "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "playground": "rm -rf ./src/dist && npm run build && cp -r ./dist/ ./src/dist/ && npm run start-react-app"
   },
   "eslintConfig": {
     "extends": [
@@ -68,5 +71,10 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-typescript2": "^0.29.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.1"
   }
 }
